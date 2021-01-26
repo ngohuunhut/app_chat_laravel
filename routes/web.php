@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => '', 'as' => 'frontend.'], function () {
+    Route::get('messages', function () {
+        return view('frontend.chat.index');
+    });
+});
