@@ -11,14 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-const tailwindcss = require('tailwindcss');
-
 mix.js('resources/js/app.js', 'public/assets/js/')
-    .sass('resources/sass/app.scss', 'public/assets/css/')
-    .options({
-        processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
-    });
+    .sass('resources/sass/app.scss', 'public/assets/css/');
 
 if (mix.inProduction() || process.env.npm_lifecycle_event !== 'hot') {
     mix.version();
